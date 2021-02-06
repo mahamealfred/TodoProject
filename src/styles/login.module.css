@@ -6,8 +6,6 @@
   height: 100vh;
   overflow: hidden;
 }
-
-
 .container {
   position: absolute;
   display: flex;
@@ -18,8 +16,6 @@
   background: white;
   border-radius: 10px;
 }
-
-
 .container h1 {
   text-align: justify;
   text-align: center;
