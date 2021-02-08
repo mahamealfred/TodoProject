@@ -43,19 +43,32 @@ validate = () =>{
     {
         fullNameError='name can not be blank';
     }
+    else{
+        fullNameError='';
+    }
     if (!this.state.UserName)
     {
         usenameError='username can not be blank';
+    }
+    else{
+        usenameError="";
     }
 
     if (!this.state.Password) {
         
         passwordError = "Please enter your password.";
       }
+      else
+      {
+        passwordError="";   
+      }
   
       if (!this.state.Cpassword) {
      
         cpasswordError= "Please enter your confirm password.";
+      }
+      else{
+        cpasswordError="";
       }
   
       if (typeof  this.state.password== "undefined" && typeof this.state.Cpassword !== "undefined") {
@@ -64,12 +77,21 @@ validate = () =>{
          
           passwordError = "Passwords don't match.";
         }
+
       } 
+      else
+      {
+          passwordError="";  
+      }
   
 
     if (!this.state.Email.includes('@')){
         emaiError='invalid email';
     }
+    else{
+        emaiError="";
+    }
+  
     if (emaiError || fullNameError || passwordError|| cpasswordError || usenameError)
     {
         this.setState({fullNameError,usenameError,emaiError,passwordError,cpasswordError});
@@ -81,10 +103,10 @@ validate = () =>{
 
     handleSubmit(e){
     e.preventDefault();
-    const isValid=this.validate();
+    const isValid = this.validate();
     if(isValid){
         console.log(this.state);
-        this.setState(initialState);
+        
     }
   
             
