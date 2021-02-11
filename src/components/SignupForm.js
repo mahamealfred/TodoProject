@@ -1,16 +1,9 @@
 
 import React, { Component } from 'react';
-import style from '../styles/main.module.css';
+//import style from '../styles/main.module.css';
+import style from '../styles/login.module.css';
 
 
-const initialState={
-    FullName:'',
-    UserName:'',
-    Email:'',
-    Password:'',
-    Cpassword:''
-
-}
 
 export default class SignupForm extends Component {
    
@@ -77,6 +70,7 @@ validate = () =>{
          
           passwordError = "Passwords don't match.";
         }
+      
 
       } 
       else
@@ -121,40 +115,53 @@ handleChange(e){
         
     
         return (
-            <div className={style.container}>
-
-                <form method="post" action="LoginForm.js" onSubmit={(e)=>this.handleSubmit(e)}>
-                    <ul>
-                        <li>
-                        <p>Full Name</p>
-                           <input  type="text" placeholder="Full Name" name="FullName" onChange={(e)=>this.handleChange(e)}></input> 
+            <div>
+             <div className={style.bck}>
+                   <div className={style.container}>
+                     
+                      <form method="post" action="LoginForm.js" onSubmit={(e)=>this.handleSubmit(e)}>
+                        <h1>Signup</h1>
+                        <div className={style.field}>
+                        <input  type="text" placeholder="Full Name" name="FullName" onChange={(e)=>this.handleChange(e)}></input> 
+                        <span></span>
                            <small>{this.state.fullNameError}</small> 
-                        </li>
-                        <li>
-                        <p>Username</p>
-                           <input type="text" placeholder="Username" name="UserName" onChange={(e)=>this.handleChange(e)}></input>  
+                             
+                             
+                          </div>
+                          <div className={style.field}>
+                          <input type="text" placeholder="Username" name="UserName" onChange={(e)=>this.handleChange(e)}></input>  
                            <small>{this.state.usenameError}</small>
-                        </li>
-                        <li>
-                        <p>Email</p>
-                           <input type="email" placeholder="Email" name="Email" onChange={(e)=>this.handleChange(e)}></input>  
+                              <span></span>
+                             
+                          </div>
+                      <div className={style.field}>
+                        <input type="email" placeholder="Email" name="Email" onChange={(e)=>this.handleChange(e)}></input>  
                            <small>{this.state.emaiError}</small>
-                        </li>
-                        <li>
-                        <p>Password</p>
-                           <input type="password"  name="Password" onChange={(e)=>this.handleChange(e)}></input>  
+                           <span></span>
+                              </div>
+
+                          <div className={style.field}>
+                          <input type="password"  name="Password" placeholder="Password" onChange={(e)=>this.handleChange(e)}></input>  
                            <small>{this.state.passwordError}</small>
-                        </li>
-                        <li>
-                        <p>Confirm Password</p>
-                           <input type="password"  name="Cpassword" onChange={(e)=>this.handleChange(e)}></input>  
+                              <span></span>
+                          </div>
+
+                          <div className={style.field}>
+                          <input type="password"  name="Cpassword" placeholder="Confirm Password" onChange={(e)=>this.handleChange(e)}></input>  
                            <small>{this.state.cpasswordError}</small>
-                        </li>
-                    </ul>
-                    <button type="submit" class="btn btn-primary">Submit</button>
-                </form>
-                
-            </div>
+                              <span></span>
+                          </div>
+                              <div>
+                              <input type="submit" value="Submit"/>
+                              </div>
+                             
+                      </form>
+
+                   </div>
+
+               </div>
+              
+        </div>
         )
     }
 }
